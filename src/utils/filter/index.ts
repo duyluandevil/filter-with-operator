@@ -27,7 +27,7 @@ export type OperatorContext = {
     compareValue: CompareValue;
 };
 
-//for Field
+//for multiple Field
 export const addFiltering = (
     rootQuery: Knex.QueryBuilder,
     fieldFilter: FieldFilter[]
@@ -42,6 +42,7 @@ export const addFiltering = (
     return rootQuery;
 };
 
+// for single field
 export const execFilterToField = (
     field: string,
     rootQuery: Knex.QueryBuilder,
