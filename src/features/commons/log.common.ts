@@ -3,7 +3,6 @@ import express, { Express, Request, Response } from 'express';
 export const logAllEndpoint = (app: Express) => {
     const routesRaw = [];
     app._router.stack.forEach(function (r) {
-        console.log(r.handle.stack)
         if (r.handle.stack) {
             routesRaw.push(...r.handle.stack);
         }

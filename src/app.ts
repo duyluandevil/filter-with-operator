@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
-import { logAllEndpoint, port } from './rest';
-import { routerTest } from './rest/presentations/rest';
-// import { rest } from './rest/presentations/rest';
+import { logAllEndpoint, port } from './features';
+import { routerTest } from './features/presentations/rest';
+import { FIELD_USE_FILTER, execFileStoresInFolder } from './utils/filter/fields';
 
 export const app: Express = express();
 
@@ -13,3 +13,5 @@ app.listen(port, () => {
 
 
 logAllEndpoint(app);
+
+// execFileStoresInFolder();

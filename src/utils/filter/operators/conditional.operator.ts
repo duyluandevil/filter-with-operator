@@ -3,21 +3,12 @@ import { LogicalEnum, OperatorEnum } from './type.operator';
 import { addLogicalOperator } from './logical.operator';
 import { convertOperatorToComparison } from './common.operator';
 import { CompareValue } from '../types';
+import { OperatorContext, TableContext } from '..';
 
 export const addConditionalOperator = (
     rootQuery: Knex.QueryBuilder,
-    operatorContext: {
-        operator: OperatorEnum | undefined;
-        logical?: LogicalEnum;
-        compareValue: CompareValue;
-    },
-    tableContext: {
-        table?: {
-            field: string;
-            name: string;
-        };
-        raw?: string;
-    },
+    operatorContext: OperatorContext,
+    tableContext: TableContext,
     context?: {}
 ) => {
     const {operator, logical, compareValue} = operatorContext;

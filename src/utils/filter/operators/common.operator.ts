@@ -7,6 +7,9 @@ export const convertOperatorToComparison = (operator: OperatorEnum) => {
         case OperatorEnum.EQUAL:
             comparison = ComparisonEnum.EQUAL;
             break;
+        case OperatorEnum.NOT_EQUAL:
+            comparison = ComparisonEnum.NOT_EQUAL;
+            break;
     }
 
     return comparison;
