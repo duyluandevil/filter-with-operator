@@ -1,7 +1,4 @@
 import express from 'express';
-import {
-    convertQueriesToFilter,
-} from '../../utils';
 import { GetOneByFilter } from '../usecases/get-one-by-filter';
 
 export const routerTest = express.Router();
@@ -13,15 +10,61 @@ routerTest.use(function (req, res, next) {
 });
 
 routerTest.get('/', async function (req, res, next) {
-    //validate
-
-    //convert
-    const fieldFilter = convertQueriesToFilter(req.query);
+    //read more data test in folder mock
+    //complex filter
+    const filter = {
+        or: [
+            {
+                and: [
+                    {
+                        name: {
+                            eq: 1,
+                        },
+                    },
+                    {
+                        id: {
+                            eq: 2,
+                        },
+                    },
+                    {
+                        or: [
+                            {
+                                and: [
+                                    {
+                                        name: {
+                                            eq: 1,
+                                        },
+                                    },
+                                    {
+                                        id: {
+                                            eq: 2,
+                                        },
+                                    },
+                                ],
+                            },
+                            {
+                                id: {
+                                    eq: 2,
+                                },
+                            },
+                            {
+                                or: [{ name: { eq: 1 } }, { id: { eq: 1 } }],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: {
+                    eq: 1,
+                },
+            },
+        ],
+    };
 
     //use case
     const usecase = new GetOneByFilter();
-    const users = await usecase.processing(fieldFilter);
+    const users = await usecase.processing(filter);
 
     res.send(users);
 });
-

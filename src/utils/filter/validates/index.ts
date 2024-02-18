@@ -9,4 +9,3 @@ export const validateQueriesForFiltering = (queries: any) => {
     });
 };
 
-export * from './convert.validate';

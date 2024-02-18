@@ -35,15 +35,15 @@ export enum OperatorEnum {
     OR_CONTAIN = 'o:ct',
     OR_IS = 'o:is',
     OR_IS_NOT = 'o:isnot'
-
 }
 export const OPERATOR = Object.entries(OperatorEnum);
 
 export enum LogicalEnum {
-    AND = 'a',
-    OR = 'o',
+    AND = 'and',
+    OR = 'or',
 }
-export const LOGICAL = Object.entries(LogicalEnum);
+export const LOGICAL = {};
+Object.values(LogicalEnum).forEach((value) => (LOGICAL[value] = value));
 
 export enum ComparisonEnum {
     EQUAL = '=',

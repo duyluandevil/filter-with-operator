@@ -8,7 +8,7 @@ export class GetOneByFilter{
                this._dao = new UsersDao();
         }
 
-        async processing(filter?: FieldFilter[]){
+        async processing(filter?: any){
                 return this._dao.getUsers(filter);
         }
 
