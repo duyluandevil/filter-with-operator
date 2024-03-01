@@ -11,6 +11,7 @@ export const IdField: FieldFilterConfiguration = {
     alias: 'id',
 };
 
+//new class structure for field
 export class IdField2 extends BaseField {
     constructor() {
         super({
@@ -25,3 +26,4 @@ export class IdField2 extends BaseField {
         });
     }
 }
+
