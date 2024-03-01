@@ -11,9 +11,12 @@ import { FIELD_USE_FILTER } from './fields';
 
 export type FieldFilter = Record<string, LogicalFilterValueType>;
 
-export type LogicalFilterValueType = Record<LogicalEnum, FieldFilterValueType>
+export type LogicalFilterValueType = Record<LogicalEnum, FieldFilterValueType>;
 
-export type FieldFilterValueType = Record<string, Record<OperatorEnum, CompareValue>>
+export type FieldFilterValueType = Record<
+    string,
+    Record<OperatorEnum, CompareValue>
+>;
 
 export type FilterContextParameter = {
     operatorContext: OperatorContext;
@@ -34,7 +37,6 @@ export type OperatorContext = {
     compareValue: CompareValue;
 };
 
-
 // for single field
 export const execFilterToField = (
     field: string,
@@ -51,7 +53,6 @@ export const execFilterToField = (
     execOperator(rootQuery, context.operatorContext, tableContext);
     return rootQuery;
 };
-
 
 export const execFilter = (
     rootQuery: Knex.QueryBuilder,
@@ -74,7 +75,7 @@ export const execFilter = (
                                 execFilter(sub, operation[i], LOGICAL[subKey]);
                             }
                         );
-                    //if not Logical, exec operator for query
+                        //if not Logical, exec operator for query
                     } else {
                         execFilterToField(
                             Object.keys(operation[i])[0],
@@ -107,6 +108,9 @@ export const execFilter = (
             });
         }
     }
+
+    return rootQuery;
 };
 
 export * from './validates';
+export * from './mock';
