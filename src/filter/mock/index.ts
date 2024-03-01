@@ -5,12 +5,12 @@ export const filter1 = {
             and: [
                 {
                     name: {
-                        ct: 1,
+                        eq: 1,
                     },
                 },
                 {
                     id: {
-                        ct: 2,
+                        eq: 2,
                     },
                 },
             ],
@@ -21,17 +21,17 @@ export const filter1 = {
                     or: [
                         {
                             name: {
-                                ct: 1,
+                                eq: 1,
                             },
                             id: {
-                                ct: 2,
+                                eq: 2,
                             },
                         },
                     ],
                 },
                 {
                     name: {
-                        ct: 1,
+                        eq: 1,
                     },
                 },
             ],
